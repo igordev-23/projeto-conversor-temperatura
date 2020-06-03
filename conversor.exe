@@ -1,18 +1,21 @@
 Algoritmo "ConversordeTemperatura"
+//  
+//  
 //
 //
 // Descrição   : converte temperaturas de acordo com a temperatura do desejo do usuário
 // Autor(a)    : Igor Alves Santos
 // Data atual  : 26/05/2020
 Var
-
+     Resp,pais,UMT,UMT2: caractere
+     T: real
 
 
 Inicio
 
-      Escreval("         ---------------------------------------------------")
-      escreval("                       CONVERSOR DE TEMPERATURA             ")
-      escreval("         ---------------------------------------------------")
+      Escreval("---------------------------------------------------------------")
+      escreval("                     CONVERSOR DE TEMPERATURA                  ")
+      escreval("---------------------------------------------------------------")
 
       escreval(" ")
 
@@ -21,6 +24,53 @@ Inicio
       escreval("   Aqui você pode converter os graus de acordo com a unidade")
       escreval("   de medida de temperatura que se usa no seu país ou que ")
       escreval("   você deseja saber de outro país.")
+      Escreval(" ")
+      Escreval("---------------------------------------------------------------")
+      Escreval("Olá, em qual país você está?")
+      Leia(pais)
+      Escreval("Qual a temperatura atual em ",pais,"?")
+      Leia(T)
+      Escreval("Qual a unidade de medida de temperatura de ",pais,"?")
+      Leia(UMT)
+      Se(UMT = "Celsius") entao
+        Escreval("Você quer converter para Fahrenheit ou Kelvin?")
+        Leia(UMT2)
+        Se(UMT2 = "Fahrenheit") entao
+          T <- (T * 9/5) + 32
+          Escreval("A temperatura de ",pais," em Fahrenheit é",T)
+        Senao se (UMT2 = "Kelvin") entao
+          T <- T + 273.15
+          Escreval("A temperatura de ",pais," em Kelvin é",T)
+        Fimse
+
+       Se (UMT = "Fahrenheit") entao
+        Escreval("Você quer converter para Celsius ou Kelvin?")
+        Leia(UMT2)
+         se(UMT2 = "Celsius") entao
+          T <- (T- 32) * 5/9
+          Escreval("A temperatura de ",pais," em Celsius é ",T)
+         Senao se(UMT2 = "Kelvin") entao
+          T <- (T - 32) * 5/9 + 273.15
+          Escreval("A temperatura de ",pais," em Kelvin é",T)
+        Fimse
+        
+        Senao (UMT = "Kelvin") entao
+         Escreval("Você quer converter para Celsius ou Fahrenheit?")
+         Leia(UMT2)
+         Se(UMT2 = "Celsius") entao
+          T <- T - 273.15
+          Escreval("A temperatura de ",pais," em Celsius é ",T)
+         Senao se(UMT2 = "Fahrenheit") entao
+          T <- (T- 273,15) * 9/5 + 32
+          Escreval("A temperatura de ",pais," em Fahrenheit é",T)
+         Fimse
+        Fimse
+        Fimse
+
+
+
+
+      
 
 
 Fimalgoritmo
