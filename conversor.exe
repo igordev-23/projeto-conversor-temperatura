@@ -31,8 +31,13 @@ Inicio
       Escreval("Qual a temperatura atual em ",pais,"?")
       Leia(T)
       Escreval("Qual a unidade de medida de temperatura de ",pais,"?")
+      Escreval("[1]Celsius, [2]Kelvin, [3]Fahrenheit")
       Leia(UMT)
-      Se(UMT = "Celsius") entao
+      
+      Escolha UMT
+
+      Caso 1
+       Se(UMT = "Celsius") entao
         Escreval("Você quer converter para Fahrenheit ou Kelvin?")
         Leia(UMT2)
         Se(UMT2 = "Fahrenheit") entao
@@ -42,19 +47,10 @@ Inicio
           T <- T + 273.15
           Escreval("A temperatura de ",pais," em Kelvin é",T)
         Fimse
-
-       Se (UMT = "Fahrenheit") entao
-        Escreval("Você quer converter para Celsius ou Kelvin?")
-        Leia(UMT2)
-         se(UMT2 = "Celsius") entao
-          T <- (T- 32) * 5/9
-          Escreval("A temperatura de ",pais," em Celsius é ",T)
-         Senao se(UMT2 = "Kelvin") entao
-          T <- (T - 32) * 5/9 + 273.15
-          Escreval("A temperatura de ",pais," em Kelvin é",T)
-        Fimse
-        
-        Senao (UMT = "Kelvin") entao
+       Fimse
+       
+       Caso 2
+        Se (UMT = "Kelvin") entao
          Escreval("Você quer converter para Celsius ou Fahrenheit?")
          Leia(UMT2)
          Se(UMT2 = "Celsius") entao
@@ -65,7 +61,21 @@ Inicio
           Escreval("A temperatura de ",pais," em Fahrenheit é",T)
          Fimse
         Fimse
+
+      Caso 3
+       Se (UMT = "Fahrenheit") entao
+        Escreval("Você quer converter para Celsius ou Kelvin?")
+        Leia(UMT2)
+         se(UMT2 = "Celsius") entao
+          T <- (T- 32) * 5/9
+          Escreval("A temperatura de ",pais," em Celsius é ",T)
+         Senao se(UMT2 = "Kelvin") entao
+          T <- (T - 32) * 5/9 + 273.15
+          Escreval("A temperatura de ",pais," em Kelvin é",T)
         Fimse
+        Fimse
+        
+    Fimescolha
 
 
 
