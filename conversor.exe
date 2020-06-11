@@ -4,15 +4,22 @@ Algoritmo "ConversordeTemperatura"
 //
 //
 // Descrição   : converte temperaturas de acordo com a temperatura do desejo do usuário
+//               pais = país de que o usuário digitou
+//               T = temperatura do país do usuário
+//               UMT = Unidade de Medida de Temperatura do país do usuário
+//               UMT2 = Unidade de Medida de Temperatura que o usuário deseja saber
+//               Decisao = Resposta final do usuário após a conversão. Para caso escolha converter novamente ou encerrar o programa
+
 // Autor(a)    : Igor Alves Santos
 // Data atual  : 26/05/2020
 Var
-     Resp,pais,UMT,UMT2: caractere
+     Decisao,pais,UMT,UMT2: caractere
      T: real
 
 
 Inicio
 
+     Repita
       Escreval("---------------------------------------------------------------")
       escreval("                     CONVERSOR DE TEMPERATURA                  ")
       escreval("---------------------------------------------------------------")
@@ -25,57 +32,61 @@ Inicio
       escreval("   de medida de temperatura que se usa no seu país ou que ")
       escreval("   você deseja saber de outro país.")
       Escreval(" ")
+      Escreval("   ÍNDICE DE UNIDADES DE MEDIDA DE TEMPERATURA:                ")
+      Escreval("    C - Celsius                                                ")
+      Escreval("    F - Fahrenheit                                             ")
+      Escreval("    K - Kelvin                                                 ")
       Escreval("---------------------------------------------------------------")
       Escreval("Olá, em qual país você está?")
       Leia(pais)
       Escreval("Qual a temperatura atual em ",pais,"?")
       Leia(T)
       Escreval("Qual a unidade de medida de temperatura de ",pais,"?")
-      Escreval("[1]Celsius, [2]Kelvin, [3]Fahrenheit")
       Leia(UMT)
-      
-      Escolha UMT
-
-      Caso 1
-       Se(UMT = "Celsius") entao
+       Se(UMT = "C") entao
         Escreval("Você quer converter para Fahrenheit ou Kelvin?")
         Leia(UMT2)
-        Se(UMT2 = "Fahrenheit") entao
+        Se(UMT2 = "F") entao
           T <- (T * 9/5) + 32
-          Escreval("A temperatura de ",pais," em Fahrenheit é",T)
-        Senao se (UMT2 = "Kelvin") entao
+          Escreval("A temperatura de ",pais," em Fahrenheit é ",T:2:1)
+        Senao se (UMT2 = "K") entao
           T <- T + 273.15
-          Escreval("A temperatura de ",pais," em Kelvin é",T)
+          Escreval("A temperatura de ",pais," em Kelvin é ",T:2:1)
         Fimse
        Fimse
-       
-       Caso 2
-        Se (UMT = "Kelvin") entao
+
+        Se (UMT = "K") entao
          Escreval("Você quer converter para Celsius ou Fahrenheit?")
          Leia(UMT2)
-         Se(UMT2 = "Celsius") entao
+         Se(UMT2 = "C") entao
           T <- T - 273.15
-          Escreval("A temperatura de ",pais," em Celsius é ",T)
-         Senao se(UMT2 = "Fahrenheit") entao
-          T <- (T- 273,15) * 9/5 + 32
-          Escreval("A temperatura de ",pais," em Fahrenheit é",T)
+          Escreval("A temperatura de ",pais," em Celsius é ",T:2:1)
+         Senao se(UMT2 = "F") entao
+          T <- (T - 273.15) * 9/5 + 32
+          Escreval("A temperatura de ",pais," em Fahrenheit é ",T:2:1)
          Fimse
         Fimse
 
-      Caso 3
-       Se (UMT = "Fahrenheit") entao
+
+       Se (UMT = "F") entao
         Escreval("Você quer converter para Celsius ou Kelvin?")
         Leia(UMT2)
-         se(UMT2 = "Celsius") entao
-          T <- (T- 32) * 5/9
-          Escreval("A temperatura de ",pais," em Celsius é ",T)
-         Senao se(UMT2 = "Kelvin") entao
+         se(UMT2 = "C") entao
+          T <- (T - 32) * 5/9
+          Escreval("A temperatura de ",pais," em Celsius é ",T:2:1)
+         Senao se(UMT2 = "K") entao
           T <- (T - 32) * 5/9 + 273.15
-          Escreval("A temperatura de ",pais," em Kelvin é",T)
+          Escreval("A temperatura de ",pais," em Kelvin é ",T:2:1)
         Fimse
         Fimse
         
-    Fimescolha
+       Escreval("--------------------------------------------------------------")
+       Escreval("Deseja converter novamente?")
+       Leia(Decisao)
+       Limpatela
+       Ate(Decisao = "não") ou (Decisao = "nao") ou (Decisao = "NAO") ou (Decisao = "NÃO") ou (Decisao = "n") ou (Decisao = "N")
+        
+
 
 
 
